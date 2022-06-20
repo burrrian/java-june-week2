@@ -4,64 +4,49 @@ public class TestItemOrders {
     public static void main(String[] args) {
 
         // Menu items
-        Item item1 = new Item();
-        item1.name = "Mocha";
-        item1.price = 7.2;
-        Item item2 = new Item();
-        item2.name = "Latte";
-        item2.price = 5.2;
-        Item item3 = new Item();
-        item3.name = "Drip Coffee";
-        item3.price = 8.2;
-        Item item4 = new Item();
-        item4.name = "Cappucino";
-        item4.price = 7.6;
+        Item item1 = new Item("cappucino", 5.5);
+        Item item2 = new Item("mocha", 6.5);
+        Item item3 = new Item("drip coffee", 2.5);
+        Item item4 = new Item("latte", 4.5);
+        // Item item2 = new Item("Mocha", 6.5);
+        // Item item3 = new Item("Latte", 4.5);
+        // Item item4 = new Item("Drip Coffee", 5.0);
+        // System.out.println(item1.getPrice());
+        // System.out.println(item1.getName());
 
-        // Order variables -- order1, order2 etc.
-        // Order order = new OrdArrayList<Item> itemser();
-        Order order2 = new Order();
-        order2.name = "Cinduri";
         Order order1 = new Order();
-        order1.name = "Jimmy";
-        Order order3 = new Order();
-        order3.name = "Noah";
-        Order order4 = new Order();
-        order4.name = "Sam";
+        Order order2 = new Order();
 
-        order2.items.add(item2);
-        order2.total += item2.price;
+        Order order3 = new Order("Ed");
+        Order order4 = new Order("James");
+        Order order5 = new Order("Charles");
 
-        order3.items.add(item4);
-        order3.total += item4.price;
+        order1.addItem(item2);
+        order1.addItem(item4);
+        System.out.println(order1.getStatusMessage());
+        // set to ready
+        order1.setReady(true);
+        System.out.println(order1.getStatusMessage());
 
-        order4.items.add(item2);
-        order3.total += item2.price;
+        order2.addItem(item1);
+        order2.addItem(item3);
 
-        order4.items.add(item2);
-        order4.items.add(item2);
-        order4.total += item2.price * 2;
+        order3.addItem(item3);
+        order3.addItem(item4);
 
-        System.out.println("Sam has total of: " + order4.items);
-        order2.ready = true; 
-        order1.ready = true; 
-        // Application Simulations
-        // Use this example code to test various orders' updates
-        System.out.printf("Name: %s\n", order1.name);
-        System.out.printf("Total: %s\n", order1.total);
-        System.out.printf("Ready: %s\n", order1.ready);
+        order4.addItem(item2);
+        order4.addItem(item1);
 
-        // Add item1 to order2's item list and increment the order's total.
-        System.out.printf("Name: %s\n", order2.name);
-        System.out.printf("Total: %s\n", order2.total);
-        System.out.printf("Ready: %s\n", order2.ready);
+        order5.addItem(item4);
+        order5.addItem(item1);
 
-        System.out.printf("Name: %s\n", order3.name);
-        System.out.printf("Total: %s\n", order3.total);
-        System.out.printf("Ready: %s\n", order3.ready);
+        System.out.println(order1.getOrderTotal());
 
+        order3.addItem(item1);
+        order3.addItem(item4);
+        order3.addItem(item2);
 
-        System.out.printf("Name: %s\n", order4.name);
-        System.out.printf("Total: %s\n", order4.total);
-        System.out.printf("Ready: %s\n", order4.ready);
+        order3.display();
+
     }
 }
